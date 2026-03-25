@@ -1,0 +1,54 @@
+import java.util.HashMap;
+
+public class BannerAppUC8 {
+
+    public static void main(String[] args) {
+
+        // Step 1: Create HashMap
+        HashMap<Character, String[]> patternMap = new HashMap<>();
+
+        // Step 2: Store Patterns
+        patternMap.put('O', new String[]{
+                " *** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+        });
+
+        patternMap.put('P', new String[]{
+                "**** ",
+                "*   *",
+                "**** ",
+                "*    ",
+                "*    "
+        });
+
+        patternMap.put('S', new String[]{
+                " ****",
+                "*    ",
+                " *** ",
+                "    *",
+                "**** "
+        });
+
+        // Step 3: Word to Print
+        String word = "OOPS";
+
+        // Step 4: Print Banner
+        int rows = 5;
+
+        for (int i = 0; i < rows; i++) {
+            for (char ch : word.toCharArray()) {
+                String[] pattern = patternMap.get(ch);
+
+                if (pattern != null) {
+                    System.out.print(pattern[i] + "  ");
+                } else {
+                    System.out.print("?????  "); // fallback
+                }
+            }
+            System.out.println();
+        }
+    }
+}
